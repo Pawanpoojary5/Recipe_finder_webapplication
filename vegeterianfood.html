@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vegetarian - Recipe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffe259, #ffa751);
+      color: #333;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #b33939;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 800;
+      font-size: 2.5rem;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: #6d214f;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background-color: #c44569;
+    }
+
+    /* Adding a subtle shadow effect to the recipe sections */
+    .ingredients-section {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .ingredients-section h2 {
+      color: #b33939;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px #f1c40f;
+    }
+
+    .youtube-video {
+      margin-top: 30px;
+      display: block;
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>your Favourite Recipe</h1>
+
+    <div id="recipeDetails" class="ingredients-section">
+      <!-- Recipe Content Will Be Injected Here -->
+    </div>
+
+    <a href="vegeterian.html" class="back-btn">Back to Dishes</a>
+  </div>
+
+  <script>
+    // Function to fetch and display the recipe content based on the dish query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const dish = urlParams.get('dish');
+    
+    const recipeData = {
+      vegBiriyani: {
+        title: "vegBiriyani",
+        ingredients: [
+          "Chicken pieces (boneless)",
+          "Green chillies, garlic, and onion",
+          "Soy sauce, vinegar",
+          "Salt, pepper, and garam masala",
+          "Corn flour, rice flour",
+          "Curry leaves, ginger-garlic paste",
+          "Chili powder, turmeric powder",
+          "Oil for frying"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/uNXc8uH1AMo?si=yHBGGYLoXEGk5duz" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` 
+      },
+      panneer: {
+        title: "panneer",
+        ingredients: [
+          "Chicken pieces (boneless)",
+          "Green chillies, garlic, and onion",
+          "Soy sauce, vinegar",
+          "Salt, pepper, and garam masala",
+          "Capsicum, spring onions",
+          "Tomato sauce, chili sauce"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/bSxkNglf0QE?si=8XC2_W8LComldslf" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` 
+      },
+      pulav: {
+        title: "pulav",
+        ingredients: [
+          "Chicken breast (cubed)",
+          "Butter, minced garlic",
+          "Fresh cream, herbs",
+          "Chili flakes, black pepper",
+          "Parmesan cheese (optional)"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/0rkZvJ8GLaE?si=MgVYc7ppUstWyM7o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` 
+      },
+      chickenCurry: {
+        title: "Chicken Curry",
+        ingredients: [
+          "Chicken (with bones)",
+          "Onions, tomatoes, ginger-garlic paste",
+          "Coconut milk / yogurt",
+          "Spices: turmeric, red chilli, garam masala",
+          "Cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/4fRuvKNfy6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` 
+      },
+      eggFriedRice: {
+        title: "Egg Fried Rice",
+        ingredients: [
+          "Cooked rice",
+          "Beaten eggs",
+          "Chopped veggies (carrot, beans, peas)",
+          "Soy sauce, pepper, spring onion",
+          "Sesame oil (optional)"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/4fRuvKNfy6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` 
+      },
+      eggCurry: {
+        title: "Egg Curry",
+        ingredients: [
+          "Boiled eggs",
+          "Onion-tomato masala base",
+          "Garlic, ginger, cumin, coriander",
+          "Thick gravy with coconut or yogurt",
+          "Cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/4fRuvKNfy6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` 
+      }
+    };
+
+    const recipe = recipeData[dish];
+
+    if (recipe) {
+      document.getElementById('recipeDetails').innerHTML = `
+        <h2>${recipe.title}</h2>
+        <ul>
+          ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+        </ul>
+        ${recipe.youtubeEmbed}
+      `;
+      document.getElementsByTagName('h1')[0].innerText = recipe.title;
+
+    } else {
+      document.getElementById('recipeDetails').innerHTML = `
+        <p>Sorry, recipe not found!</p>
+      `;
+      document.getElementsByTagName('h1')[0].innerText = "Recipe Not Found";
+    }
+  </script>
+
+</body>
+
+</html>

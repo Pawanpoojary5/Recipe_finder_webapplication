@@ -1,0 +1,109 @@
+____________________________________________________________________________________________________________________
+/* index2.html page */
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #fceabb, #f8b500);
+  padding: 20px;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #b33939;
+  text-shadow: 1px 1px #f1c40f;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav ul li a img {
+  width: 28px;
+  transition: transform 0.3s ease;
+}
+
+nav ul li a img:hover {
+  transform: scale(1.2);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.section:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.section h1 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.section p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.section button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background-color: #ff6b6b;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px #ff6b6b80;
+}
+
+.section button:hover {
+  background-color: #c44569;
+  box-shadow: 0 0 20px #c4456980;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}

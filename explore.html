@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Recipes - Family Treasure</title>
+
+  <!-- FontAwesome and Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fff3e0, #ffe0b2);
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 20px 50px;
+      border-bottom: 2px solid #ff7043;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #ff5722;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    header h1:hover {
+      color: #d84315;
+    }
+
+    .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #ff5722;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: rotate(90deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 50px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      z-index: 999;
+      backdrop-filter: blur(12px);
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+    }
+
+    .dropdown-menu a {
+      padding: 10px 0;
+      text-decoration: none;
+      color: #ff7043;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .dropdown-menu a:hover {
+      color: #c63b11;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .dropdown-menu {
+        right: 20px;
+        width: 80%;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .section {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      background: linear-gradient(to right, #ff9966, #ff5e62);
+      color: white;
+    }
+
+    .section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .section h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .section button {
+      background-color: #ff7043;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 1rem;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+    }
+
+    .section button:hover {
+      background-color: #ff5722;
+    }
+
+    .popup {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 onclick="window.location.href='dashboard.html'">Family Treasure</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="dashboard.html"><i class="fas fa-home"></i> Home</a>
+      <a href="search.html"><i class="fas fa-search"></i> Search</a>
+      <a href="mywishlist.php"><i class="fas fa-heart"></i> Wishlist</a>
+      <a href="explore.html"><i class="fas fa-utensils"></i> Recipes</a>
+      <a href="info.html"><i class="fas fa-info-circle"></i> Info</a>
+      <a href="login.html"><i class="fas fa-user"></i> Login</a>
+      <a href="signup.php.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+      <a href="adminlogin.html"><i class="fas fa-sign-out-alt"></i>admin login</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="section" onclick="showPopup('Explore the wonders of VegLife!')">
+      <h1>VegLife</h1>
+      <p>Your favorite source for the best vegetarian recipes 🍃</p>
+      <a href="vegeterian.html"><button>Explore Vegetarian</button></a>
+    </div>
+
+    <div class="section" onclick="showPopup('Spice it up with Non-Veg Life!')">
+      <h1>Non-Veg Life</h1>
+      <p>Craving protein-packed flavors? Check out our non-veg dishes 🍗</p>
+      <a href="nonveg.html"><button>Explore Non-Veg</button></a>
+    </div>
+
+    <div class="section" onclick="showPopup('Sip something refreshing with Juices & Milkshakes!')">
+      <h1>Juices & Milkshakes</h1>
+      <p>Refreshing drinks and creamy delights await you! 🥤</p>
+      <a href="juices.html"><button>Explore Drinks</button></a>
+    </div>
+
+    <div class="section" onclick="showPopup('Rediscover the taste of tradition!')">
+      <h1>Traditional Recipes</h1>
+      <p>Timeless dishes passed down through generations 🎺</p>
+      <a href="traditional.html"><button>Explore Traditions</button></a>
+    </div>
+  </div>
+
+  <div class="popup" id="popupMessage"></div>
+
+  <script>
+    function showPopup(message) {
+      const popup = document.getElementById('popupMessage');
+      popup.textContent = message;
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2200);
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.classList.toggle('show');
+    }
+
+    // Optional: Close menu when clicking outside
+    document.addEventListener('click', function (e) {
+      const menu = document.getElementById('dropdownMenu');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Recipes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top left, #fceabb, #f8b500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .search-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+      transition: transform 0.3s ease;
+    }
+
+    .search-box:hover {
+      transform: scale(1.03);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 2em;
+    }
+
+    #searchForm {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    #searchInput {
+      padding: 14px 16px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    #searchInput:focus {
+      box-shadow: 0 0 12px rgba(255, 187, 0, 0.6);
+    }
+
+    #searchButton {
+      padding: 14px 20px;
+      font-size: 1rem;
+      background: #f8b500;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #searchButton:hover {
+      background: #e6a200;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    @media screen and (max-width: 500px) {
+      .search-box {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="search-box">
+    <h1>Search Recipes 🍽️</h1>
+    <form id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search the item" autocomplete="off" required />
+      <button type="submit" id="searchButton">Search</button>
+    </form>
+    <div class="info">Try: chicken65, paneer, mangojuice, dosa, vegbiryani...</div>
+  </div>
+
+  <script>
+    // Levenshtein Distance for fuzzy matching
+    function getEditDistance(a, b) {
+      const dp = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+      for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+      for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+      for (let i = 1; i <= a.length; i++) {
+        for (let j = 1; j <= b.length; j++) {
+          if (a[i - 1] === b[j - 1]) {
+            dp[i][j] = dp[i - 1][j - 1];
+          } else {
+            dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+          }
+        }
+      }
+      return dp[a.length][b.length];
+    }
+
+    document.getElementById("searchForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();
+
+      const recipes = {
+        "nonveg.html": [
+          "fish fry", "fish curry", "chicken biryani", "chicken chilly", "chicken curry", "mutton curry",
+          "mutton biryani", "prawns masala", "crab roast", "tandoori chicken", "kebab", "egg curry", "chicken65"
+        ],
+        "vegeterian.html": [
+          "paneer tikka", "veg biryani", "veg pulao", "dal makhani", "chole", "rajma", "sambar",
+          "idli", "dosa", "palak paneer", "kadhi pakora", "aloo paratha", "bhindi fry", "mushroom masala"
+        ],
+        "juices.html": [
+          "mango juice", "orange juice", "lemonade", "smoothie", "watermelon juice", "carrot juice",
+          "apple cider", "banana shake", "strawberry smoothie", "coconut water", "pomegranate juice"
+        ],
+        "traditional.html": [
+          "pongal", "khichdi", "undhiyu", "dal baati", "sarson ka saag", "makki di roti", "poha", "upma"
+        ]
+      };
+
+      let closestMatch = null;
+      let minDistance = Infinity;
+      let matchedPage = null;
+
+      Object.entries(recipes).forEach(([page, items]) => {
+        items.forEach(item => {
+          const dist = getEditDistance(searchQuery, item.toLowerCase());
+          if (dist < minDistance) {
+            minDistance = dist;
+            closestMatch = item;
+            matchedPage = page;
+          }
+        });
+      });
+
+      if (minDistance <= 3) {
+        window.location.href = `${matchedPage}?dish=${encodeURIComponent(closestMatch)}`;
+      } else {
+        alert("❌ Dish not found in our recipe collection.");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Non-Veg Dishes - Family Treasure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      color: #333;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 3rem;
+      margin: 40px 0 20px;
+      font-weight: 800;
+      color: #b33939;
+      text-shadow: 2px 2px #f1c40f;
+    }
+
+    .nonvegdish {
+      padding: 0 40px;
+    }
+
+    .dish-container {
+      margin-bottom: 50px;
+    }
+
+    .dish-container h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #6d214f;
+      border-left: 5px solid #ff6b81;
+      padding-left: 15px;
+    }
+
+    .dish-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .dish {
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+      width: 250px;
+      transition: transform 0.3s ease;
+    }
+
+    .dish:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .dish img {
+      width: 100%;
+      border-radius: 15px;
+      height: 180px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .dish h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .view-btn,
+    .wishlist-btn {
+      border: none;
+      padding: 10px 16px;
+      margin: 5px 4px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .view-btn {
+      background: #ff6b6b;
+      color: white;
+      box-shadow: 0 0 10px #ff6b6b80;
+    }
+
+    .view-btn:hover {
+      background: #c44569;
+      box-shadow: 0 0 20px #c4456980;
+    }
+
+    .wishlist-btn {
+      background: white;
+      color: #ff6b81;
+      border: 2px solid #ff6b81;
+    }
+
+    .wishlist-btn:hover {
+      background: #ff6b81;
+      color: white;
+      box-shadow: 0 0 10px #ff6b81;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="title">Delicious Non-Veg Dishes</h1>
+
+  <div class="nonvegdish">
+
+    <!-- Chicken Dishes -->
+    <div class="dish-container">
+      <h2>Chicken Dishes</h2>
+      <div class="dish-row">
+        <div class="dish">
+          <img src="nonveg pic/chicken-65.jpg" alt="Chicken 65" />
+          <h3>Chicken 65</h3>
+          <button class="view-btn" onclick="location.href='nonvegfood.html?dish=chicken65'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('Chicken 65')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="nonveg pic/chicken-chilly.jpg" alt="Chicken Chilli" />
+          <h3>Chicken Chilli</h3>
+          <button class="view-btn" onclick="location.href='nonvegfood.html?dish=chickenChilli'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('chickenChilli')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="nonveg pic/butter chicken.jpg" alt="Butter Garlic Chicken" />
+          <h3>Butter Garlic Chicken</h3>
+          <button class="view-btn" onclick="location.href='nonvegfood.html?dish=butterGarlicChicken'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('butterGarlicChicken')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="nonveg pic/chicken-curry.jpg" alt="Chicken Curry" />
+          <h3>Chicken Curry</h3>
+          <button class="view-btn" onclick="location.href='nonvegfood.html?dish=chickenCurry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('chickenCurry')">❤️ Wishlist</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mutton Dishes -->
+    <div class="dish-container">
+      <h2>Mutton Dishes</h2>
+      <div class="dish-row">
+        <div class="dish">
+          <img src="nonveg pic/muttoncurry.jpg" alt="Mutton Curry" />
+          <h3>Mutton Curry</h3>
+          <button class="view-btn" onclick="location.href='nonvegfood.html?dish=muttonCurry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('muttonCurry')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="nonveg pic/muttonbirriyani.jpg" alt="Mutton Biryani" />
+          <h3>Mutton Biryani</h3>
+          <button class="view-btn" onclick="location.href='nonvegfood.html?dish=muttonBiryani'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('muttonBiryani')">❤️ Wishlist</button>
+        </div>
+      </div>
+    
+  // Fish Dishes
+      <div class="dish-container">
+        <h2>Fish Dishes</h2>
+        <div class="dish-row">
+          <div class="dish">
+            <img src="nonveg pic/fishcurry.jpg" alt="Fish Curry" />
+            <h3>Fish Curry</h3>
+            <button class="view-btn" onclick="location.href='nonvegfood.html?dish=fishCurry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('fishCurry')">❤️ Wishlist</button>
+          </div>
+          <div class="dish">
+            <img src="nonveg pic/fishfry.jpg" alt="Fish Fry" />
+            <h3>Fish Fry</h3>
+            <button class="view-btn" onclick="location.href='nonvegfood.html?dish=fishFry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('fishFry')">❤️ Wishlist</button>
+          </div>
+        </div>
+
+        // Prawn Dishes
+        <div class="dish-container">
+          <h2>Prawn Dishes</h2>
+          <div class="dish-row">
+            <div class="dish">
+              <img src="nonveg pic/prawncurry.jpg" alt="Prawn Curry" />
+              <h3>Prawn Curry</h3>
+              <button class="view-btn" onclick="location.href='nonvegfood.html?dish=prawnCurry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('prawnCurry')">❤️ Wishlist</button>
+            </div>
+            <div class="dish">
+              <img src="nonveg pic/prawnfry.jpg" alt="Prawn Fry" />
+              <h3>Prawn Fry</h3>
+              <button class="view-btn" onclick="location.href='nonvegfood.html?dish=prawnFry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('prawnFry')">❤️ Wishlist</button>
+            </div>
+          </div>
+          // Crab Dishes
+          <div class="dish-container">
+            <h2>Crab Dishes</h2>
+            <div class="dish-row">
+              <div class="dish">
+                <img src="nonveg pic/crabcurry.jpg" alt="Crab Curry" />
+                <h3>Crab Curry</h3>
+                <button class="view-btn" onclick="location.href='nonvegfood.html?dish=crabCurry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('crabCurry')">❤️ Wishlist</button>
+              </div>
+              <div class="dish">
+                <img src="nonveg pic/crabfry.jpg" alt="Crab Fry" />
+                <h3>Crab Fry</h3>
+                <button class="view-btn" onclick="location.href='nonvegfood.html?dish=crabFry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('crabFry')">❤️ Wishlist</button>
+              </div>
+            </div>
+
+
+    <!-- Egg Dishes -->
+    <div class="dish-container">
+      <h2>Egg Dishes</h2>
+      <div class="dish-row">
+        <div class="dish">
+          <img src="nonveg pic/egg fried rice.jpg" alt="Egg Fried Rice" />
+          <h3>Egg Fried Rice</h3>
+          <button class="view-btn" onclick="location.href='nonvegfood.html?dish=eggFriedRice'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('eggFriedRice')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="nonveg pic/egg curry.jpg" alt="Egg Curry" />
+          <h3>Egg Curry</h3>
+          <button class="view-btn" onclick="location.href='nonvegfood.html?dish=eggCurry'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('eggCurry')">❤️ Wishlist</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+          <script>
+function addToWishlist(dish) {
+  const user = "pawan"; // Replace with session-based user
+
+  fetch('savewhislist.php', {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `username=${user}&recipe_name=${encodeURIComponent(dish)}&category=Non-Veg`
+  })
+  .then(res => res.text())
+  .then(data => alert(data));
+}
+</script>
+
+
+</body>
+
+</html>

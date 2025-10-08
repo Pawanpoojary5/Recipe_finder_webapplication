@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Non-Veg Dishes - Family Treasure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      color: #333;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 3rem;
+      margin: 40px 0 20px;
+      font-weight: 800;
+      color: #b33939;
+      text-shadow: 2px 2px #f1c40f;
+    }
+
+    .nonvegdish {
+      padding: 0 40px;
+    }
+
+    .dish-container {
+      margin-bottom: 50px;
+    }
+
+    .dish-container h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #6d214f;
+      border-left: 5px solid #ff6b81;
+      padding-left: 15px;
+    }
+
+    .dish-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .dish {
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+      width: 250px;
+      transition: transform 0.3s ease;
+    }
+
+    .dish:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .dish img {
+      width: 100%;
+      border-radius: 15px;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .dish h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .view-btn,
+    .wishlist-btn {
+      border: none;
+      padding: 10px 16px;
+      margin: 5px 4px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .view-btn {
+      background: #ff6b6b;
+      color: white;
+      box-shadow: 0 0 10px #ff6b6b80;
+    }
+
+    .view-btn:hover {
+      background: #c44569;
+      box-shadow: 0 0 20px #c4456980;
+    }
+
+    .wishlist-btn {
+      background: white;
+      color: #ff6b81;
+      border: 2px solid #ff6b81;
+    }
+
+    .wishlist-btn:hover {
+      background: #ff6b81;
+      color: white;
+      box-shadow: 0 0 10px #ff6b81;
+    }
+
+    .ingredients-section {
+      display: none;
+      padding: 25px 40px;
+      margin: 30px auto;
+      border-radius: 15px;
+      background-color: #fffdfb;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease-out forwards;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .ingredients-section h2 {
+      text-align: center;
+      color: #b33939;
+      text-shadow: 1px 1px #f8c291;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .ingredients-section ul {
+      padding-left: 30px;
+      color: #2c3e50;
+      list-style: square;
+    }
+
+    .ingredients-section li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .chicken-curry {
+      background: linear-gradient(to right, #ffe259, #ffa751);
+      color: #2c3e50;
+      border-left: 6px solid #e17055;
+    }
+
+    .egg-curry {
+      background: linear-gradient(to right, #f9f6f2, #ffe8e0);
+      color: #3d3d3d;
+      border-left: 6px solid #f0932b;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  
+  <h1 class="title">Refreshing Juices</h1>
+
+  <div class="nonvegdish">
+    <div class="dish-container">
+      <h2>Fruit Juices</h2>
+      <div class="dish-row">
+        <div class="dish">
+          <img src="juice\orange.webp" alt="Orange Juice" />
+          <h3>Orange Juice</h3>
+          <button class="view-btn" onclick="location.href='juices2.html?dish=orange_juice'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('orange_juice')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="juice\mango.jpg" alt="Mango Juice" />
+          <h3>Mango Juice</h3>
+          <button class="view-btn" onclick="location.href='juices2.html?dish=mango_juice'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('mango_juice')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="juice\watermelon.jpg" alt="Watermelon Juice" />
+          <h3>Watermelon Juice</h3>
+          <button class="view-btn" onclick="location.href='juices2.html?dish=watermelon_juice'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('watermelon_juice')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="juice\grape.jpg" alt="Grape Juice" />
+          <h3>Grape Juice</h3>
+          <button class="view-btn" onclick="location.href='juices2.html?dish=grape_juice'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('grape_juice')">❤️ Wishlist</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-container">
+      <h2>Mixed Juices</h2>
+      <div class="dish-row">
+        <div class="dish">
+          <img src="juice\mixedfruit.jpg" alt="Mixed Fruit Juice" />
+          <h3>Mixed Fruit Juice</h3>
+          <button class="view-btn" onclick="location.href='juices2.html?dish=mixed_fruit_juice'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('mixed_fruit_juice')">❤️ Wishlist</button>
+        </div>
+        <div class="dish">
+          <img src="juice\greendetox.jpg" alt="Green Detox Juice" />
+          <h3>Green Detox Juice</h3>
+          <button class="view-btn" onclick="location.href='juices2.html?dish=green_detox_juice'">View</button>
+<button class="wishlist-btn" onclick="addToWishlist('green_detox_juice')">❤️ Wishlist</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <script>
+function addToWishlist(dish) {
+  const user = "pawan"; // Replace with session-based user
+
+  fetch('savewhislist.php', {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `username=${user}&recipe_name=${encodeURIComponent(dish)}&category=juice`
+  })
+  .then(res => res.text())
+  .then(data => alert(data));
+}
+</script>
+ 
+</body>
+</html>

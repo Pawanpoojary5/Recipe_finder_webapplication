@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicken 65 - Recipe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffe259, #ffa751);
+      color: #333;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #b33939;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 800;
+      font-size: 2.5rem;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: #6d214f;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background-color: #c44569;
+    }
+
+    .ingredients-section {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .ingredients-section h2 {
+      color: #b33939;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px #f1c40f;
+    }
+
+    .youtube-video {
+      margin-top: 30px;
+      display: block;
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Delcious Nonveg Reciepes👌😋🤤</h1>
+
+    <div id="recipeDetails" class="ingredients-section">
+      <!-- Recipe Content Will Be Injected Here -->
+    </div>
+
+    <a href="nonveg.html" class="back-btn">Back to Dishes</a>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const dish = urlParams.get('dish');
+
+    const recipeData = {
+      chicken65: {
+        title: "Chicken 65",
+        ingredients: [
+          "Chicken pieces (boneless)",
+          "Green chillies, garlic, and onion",
+          "Soy sauce, vinegar",
+          "Salt, pepper, and garam masala",
+          "Corn flour, rice flour",
+          "Curry leaves, ginger-garlic paste",
+          "Chili powder, turmeric powder",
+          "Oil for frying"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/Sxqn0wPKsJM?si=2EINPAgHyuBgk27z" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      chickenChilli: {
+        title: "Chicken Chilli",
+        ingredients: [
+          "Chicken pieces (boneless)",
+          "Green chillies, garlic, and onion",
+          "Soy sauce, vinegar",
+          "Salt, pepper, and garam masala",
+          "Capsicum, spring onions",
+          "Tomato sauce, chili sauce"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/pMCS1TR4Wyo?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      butterGarlicChicken: {
+        title: "Butter Garlic Chicken",
+        ingredients: [
+          "Chicken breast (cubed)",
+          "Butter, minced garlic",
+          "Fresh cream, herbs",
+          "Chili flakes, black pepper",
+          "Parmesan cheese (optional)"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/W8gnfLe8n04?si=3DW2G1PQ7B_Gg4Pd" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      chickenCurry: {
+        title: "Chicken Curry",
+        ingredients: [
+          "Chicken (with bones)",
+          "Onions, tomatoes, ginger-garlic paste",
+          "Coconut milk / yogurt",
+          "Spices: turmeric, red chilli, garam masala",
+          "Cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      muttonBiryani: {
+        title: "Mutton Biryani",
+        ingredients: [
+          "Mutton pieces",
+          "Basmati rice, saffron",
+          "Onions, tomatoes, ginger-garlic paste",
+          "Spices: bay leaf, cardamom, cloves",
+          "Mint and cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/2v0g1X3q4xE?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      muttonCurry: {
+        title: "Mutton Curry",
+        ingredients: [
+          "Mutton pieces",
+          "Onions, tomatoes, ginger-garlic paste",
+          "Spices: turmeric, red chilli, garam masala",
+          "Coconut milk / yogurt",
+          "Cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/2v0g1X3q4xE?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      fishCurry: {
+        title: "fishCurry",
+        ingredients: [
+          "Fish fillets (any white fish)",
+          "Onions, tomatoes, ginger-garlic paste",
+          "Coconut milk / yogurt",
+          "Spices: turmeric, red chilli, garam masala",
+          "Cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/2v0g1X3q4xE?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      fishFry: {
+        title: "Fish Fry",
+        ingredients: [
+          "Fish fillets (any white fish)",
+          "Turmeric, red chilli powder",
+          "Rice flour, salt",
+          "Lemon juice, ginger-garlic paste",
+          "Oil for frying"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/2v0g1X3q4xE?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      prawnCurry: {
+        title: "Prawn Curry",
+        ingredients: [
+          "Prawns (cleaned)",
+          "Onions, tomatoes, ginger-garlic paste",
+          "Coconut milk / yogurt",
+          "Spices: turmeric, red chilli, garam masala",
+          "Cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/2v0g1X3q4xE?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      prawnFry: {
+        title: "Prawn Fry",
+        ingredients: [
+          "Prawns (cleaned)",
+          "Turmeric, red chilli powder",
+          "Rice flour, salt",
+          "Lemon juice, ginger-garlic paste",
+          "Oil for frying"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/2v0g1X3q4xE?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      crabCurry: {
+        title: "Crab Curry",
+        ingredients: [
+          "Crab pieces",
+          "Onions, tomatoes, ginger-garlic paste",
+          "Coconut milk / yogurt",
+          "Spices: turmeric, red chilli, garam masala",
+          "Cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/2v0g1X3q4xE?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      crabFry: {
+        title: "Crab Fry",
+        ingredients: [
+          "Crab pieces",
+          "Turmeric, red chilli powder",
+          "Rice flour, salt",
+          "Lemon juice, ginger-garlic paste",
+          "Oil for frying"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/2v0g1X3q4xE?si=6s44StSbeVT8_iGk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      eggFriedRice: {
+        title: "Egg Fried Rice",
+        ingredients: [
+          "Cooked rice",
+          "Beaten eggs",
+          "Chopped veggies (carrot, beans, peas)",
+          "Soy sauce, pepper, spring onion",
+          "Sesame oil (optional)"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/VnSOhNaYdig?si=nnmMvxSK7dPkJPtB" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      },
+      eggCurry: {
+        title: "Egg Curry",
+        ingredients: [
+          "Boiled eggs",
+          "Onion-tomato masala base",
+          "Garlic, ginger, cumin, coriander",
+          "Thick gravy with coconut or yogurt",
+          "Cilantro for garnishing"
+        ],
+        youtubeEmbed: `<iframe class="youtube-video" src="https://www.youtube.com/embed/sLC04_AQ-x4?si=1EBGsjFc1BB1O7qN" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      }
+    };
+
+    const recipe = recipeData[dish];
+
+    if (recipe) {
+      document.getElementById('recipeDetails').innerHTML = `
+        <h2>${recipe.title}</h2>
+        <ul>
+          ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+        </ul>
+        ${recipe.youtubeEmbed}
+      `;
+    } else {
+      document.getElementById('recipeDetails').innerHTML = `
+        <p>Sorry, recipe not found!</p>
+      `;
+    }
+  </script>
+
+</body>
+
+</html>
